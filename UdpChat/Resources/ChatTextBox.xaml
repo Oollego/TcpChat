@@ -1,0 +1,90 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <DataTemplate x:Key="ListBoxMessages">
+
+        <Border x:Name="MessageBorder" CornerRadius="10" MinWidth="100" MaxWidth="300" Padding="2" BorderThickness="1" HorizontalAlignment="Left" Background="White">
+
+            <StackPanel Orientation="Vertical">
+                <!--<StackPanel.OpacityMask>
+                    <VisualBrush Visual="{Binding ElementName=TextBoxBorder}"/>
+                </StackPanel.OpacityMask>-->
+                <!--<Image Source="{Binding FileName}"></Image>-->
+                
+                
+                <!--Method of mediaElement public MediaCanPlayResponse CanPlayType(string type);-->
+                <!--MediaOpened=""-->
+                <MediaElement x:Name="MessageMediaElement" Source="{Binding FileName}" Margin="2" LoadedBehavior="Pause" ScrubbingEnabled="True"/>
+                <TextBlock x:Name="MessageTextBox" TextWrapping="Wrap" Margin="5,5,5,5" Text="{Binding Text}" />
+                <!--<ScrollViewer x:Name="PART_ContentHost" FontSize="20"  VerticalAlignment="Center" Margin = "10,0,10,0"/>-->
+                <TextBlock x:Name="TextBlockClock"  HorizontalAlignment="Right" Margin="0,0,10,5" Text="{Binding Date, StringFormat= 'hh:mm'}">
+                    <TextBlock.Style>
+                        <Style>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding IsIncoming}" Value="false">
+                                    <Setter Property="TextBlock.Foreground" Value="#FF6db774"/>
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding IsIncoming}" Value="true">
+                                    <Setter Property="TextBlock.Foreground" Value="#FFa0acb6"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBlock.Style>
+                </TextBlock>
+
+            </StackPanel>
+
+        </Border>
+
+
+        <DataTemplate.Triggers>
+            <DataTrigger Binding="{Binding IsIncoming}" Value="false">
+                <Setter TargetName="MessageBorder" Property="HorizontalAlignment" Value="Right"/>
+                <Setter TargetName="MessageBorder" Property="Background" Value="#ffeffdde"/>
+            </DataTrigger>
+        </DataTemplate.Triggers>
+
+    </DataTemplate>
+</ResourceDictionary>
+
+<!--<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<DataTemplate x:Key="ListBoxMessages">
+
+    <StackPanel >
+        <TextBox x:Name="MessageTextBox" MaxWidth="300" TextWrapping="Wrap" Margin="5,5,5,5" Text="{Binding Text}" HorizontalAlignment="Left">
+            <TextBox.Template>
+                <ControlTemplate>
+                    <Border x:Name="TextBoxBorder" CornerRadius="10" Padding="2" BorderThickness="1"  Background="{TemplateBinding Background}">
+                        <StackPanel>
+                            <ScrollViewer x:Name="PART_ContentHost" FontSize="20"  VerticalAlignment="Center" Margin = "10,0,10,0"/>
+                            <TextBlock x:Name="TextBlockClock"  HorizontalAlignment="Right" Margin="0,0,10,5" Text="{Binding Date, StringFormat= 'hh:mm'}">
+                                <TextBlock.Style>
+                                    <Style>
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding IsIncoming}" Value="false">
+                                                <Setter Property="TextBlock.Foreground" Value="#FF6db774"/>
+                                            </DataTrigger>
+                                            <DataTrigger Binding="{Binding IsIncoming}" Value="true">
+                                                <Setter Property="TextBlock.Foreground" Value="#FFa0acb6"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </TextBlock.Style>
+                            </TextBlock>
+                        </StackPanel>
+                    </Border>
+                </ControlTemplate>
+            </TextBox.Template>
+        </TextBox>
+
+    </StackPanel>
+
+    <DataTemplate.Triggers>
+        <DataTrigger Binding="{Binding IsIncoming}" Value="false">
+            <Setter TargetName="MessageTextBox" Property="HorizontalAlignment" Value="Right"/>
+            <Setter TargetName="MessageTextBox" Property="Background" Value="#ffeffdde"/>
+        </DataTrigger>
+
+    </DataTemplate.Triggers>
+</DataTemplate>
+</ResourceDictionary>-->

@@ -1,0 +1,12 @@
+﻿<Application x:Class="UdpChat.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:UdpChat"
+             xmlns:vm="clr-namespace:UdpChat.ViewModels"
+             StartupUri="View/Windows/MainWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <vm:ViewModelLocator x:Key="Locator"/>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

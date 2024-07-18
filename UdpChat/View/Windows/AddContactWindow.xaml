@@ -1,0 +1,45 @@
+﻿<Window x:Class="UdpChat.View.Windows.AddContactWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:UdpChat.View.Windows"
+        xmlns:vm="clr-namespace:UdpChat.ViewModels"
+        DataContext="{Binding MainWindowModel, Source={StaticResource Locator}}"
+        mc:Ignorable="d"
+        Title="ContactAditor" Height="150" Width="300" WindowStyle="None" >
+   
+    <Grid>
+        <!--<Grid.DataContext>
+            <vm:MainWindowViewModel/>
+        </Grid.DataContext>-->
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="80"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <TextBlock Text="Name:"  VerticalAlignment="Center" Grid.Row="1" Grid.Column="0" Margin="15,0,0,0"/>
+            <TextBlock Text="Surname:"  VerticalAlignment="Center" Grid.Row="2" Grid.Column="0" Margin="15,0,0,0"/>
+            <TextBlock Text="IPAddress:"  VerticalAlignment="Center" Grid.Row="3" Grid.Column="0" Margin="15,0,0,0"/>
+            <TextBox x:Name="TextBoxName" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" Background="#FFEEEEEE" Margin="0,0,15,0"/>
+            <TextBox x:Name="TextBoxSurname" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" Background="#FFEEEEEE" Margin="0,0,15,0"/>
+            <TextBox x:Name="TextBoxIpAddress" Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" Background="#FFEEEEEE" Margin="0,0,15,0"/>
+
+        </Grid>
+        <StackPanel Grid.Row="1" Orientation="Horizontal" FlowDirection="RightToLeft">
+            <Button Content="Cancel" IsCancel="True"  Width="70" Height="20" Margin="15,0,0,0" Click="Button_Click_1"/>
+            <Button Content="Add" IsCancel="True" Width="70" Height="20" Margin="15,0,0,0" Click="Button_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>
